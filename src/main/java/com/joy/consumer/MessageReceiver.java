@@ -11,5 +11,4 @@ public class MessageReceiver {
     public void process(Object message){
         System.out.println("received message: "+message);
     }
-
 }

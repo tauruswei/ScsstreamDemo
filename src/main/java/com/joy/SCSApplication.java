@@ -7,7 +7,7 @@ import org.springframework.cloud.stream.messaging.Sink;
 import org.springframework.cloud.stream.messaging.Source;
 
 @SpringBootApplication
-// 引入消息的产生和消费
+// 引入消息的产生端和消费端
 @EnableBinding({Source.class, Sink.class})
 public class SCSApplication {
     public static void main(String[] args) {
