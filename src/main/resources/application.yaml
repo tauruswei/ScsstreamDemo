@@ -17,18 +17,27 @@ spring:
 #      默认的 binder
       default-binder: testbinder
       bindings:
+        output:
+          destination: scstreamExchange
+#          绑定 binder 也可以不指定
+          binder: testbinder
+          producer:
+#            生产者实例 有2个
+            partitionCount: 2
+#            生产者索引
+            partitionKeyExpression: 1
         input:
           destination: scstreamExchange
           group: stream
 #          绑定 binder 也可以不指定
           binder: testbinder
-#          消息的类型
-          contentType: text/plain
           consumer:
-#            重试次数
-            maxAttempts: 3
-        output:
-          destination: scstreamExchange
-#          绑定 binder 也可以不指定
-          binder: testbinder
+#            打开分区消费的策略
+            partitioned: true
+#            消费者实例数量，2个
+            instanceCount: 2
+#            消费者索引，必须与生产者的索引相对应才可以
+            instanceIndex: 1
+
+
 
