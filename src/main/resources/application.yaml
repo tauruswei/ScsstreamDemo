@@ -25,7 +25,8 @@ spring:
 #            生产者实例 有2个
             partitionCount: 2
 #            生产者索引
-            partitionKeyExpression: 1
+            partitionKeyExtractorName: myPartitionKeyExtractor
+            partitionSelectorName: myKeySelector
         input:
           destination: scstreamExchange
           group: stream
@@ -38,6 +39,7 @@ spring:
             instanceCount: 2
 #            消费者索引，必须与生产者的索引相对应才可以
             instanceIndex: 1
+
 
 
 
