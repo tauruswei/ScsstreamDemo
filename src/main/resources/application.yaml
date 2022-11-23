@@ -1,0 +1,15 @@
+spring:
+  rabbitmq:
+    host: localhost
+    password: guest
+    username: guest
+    port: 5672
+    virtual-host: /
+  cloud:
+    stream:
+      bindings:
+        input:
+          destination: scstreamExchange
+          group: stream
+        output:
+          destination: scstreamExchange
